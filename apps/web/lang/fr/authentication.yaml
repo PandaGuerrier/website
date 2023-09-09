@@ -1,0 +1,6 @@
+errors:
+  bad_credentials: 'Les identifiants sont incorrects'
+login:
+  button: "Connexion a votre compte"
+register:
+  button: "Créer votre compte !"

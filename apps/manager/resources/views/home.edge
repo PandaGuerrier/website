@@ -1,0 +1,28 @@
+@layout('manager::layouts/default')
+
+@section('body')
+<div class='row-flex w-full  justify-center m-5 bg-red-500'>
+  <h1 class="text-xl">Bienvenue sur le panel de gestion de l'application</h1>
+  <div class="flex inline-grid grid-cols-3 gap-4 w-full justify-center m-5 bg-red-600">
+     <div>
+        <a href="{{ route('manager.users.index') }}">
+          @component('manager::components/container')
+            Gestion des utilisateurs
+          @end
+        </a>
+      </div>
+      @component('manager::components/container')
+              test
+      @end
+      @component('manager::components/container')
+              test
+      @end
+      @component('manager::components/container')
+              test
+      @end
+      @component('manager::components/container')
+              test
+      @end
+  </div>
+</div>
+@end

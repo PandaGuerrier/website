@@ -1,0 +1,36 @@
+@layout('web::layouts/authentication')
+
+@section('body')
+    <div class="flex justify-center content-center items-center w-full h-full space-y-5">
+       <div class="flex justify-center content-center w-2/7 bg-blue-950 border border-blue-400 rounded-xl p-12">
+          @form.container({ method: 'POST', action: route('authentication.login') })
+                <h1><span class="title text-5xl text-bold">Connexion</span></h1>
+                <div class="w-full flex justify-center content-center mt-24">
+                  <div class="space-y-10">
+                    @!component("web::components/form/input", {
+                      label: 'Email',
+                      name: 'email',
+                      required: true,
+                      type: "email"
+                    })
+
+                    @!component("web::components/form/input", {
+                      label: 'Mot de passe',
+                      name: 'password',
+                      required: true,
+                      type: "password"
+                    })
+
+                    <div class="justify-center">
+                      @!component("web::components/form/button", {
+                        label: 'Connexion',
+                        filled: true
+                      })
+                      <a href="/account/create" class="text-blue-400 hover:text-blue-500">Pas encore inscrit ?</a>
+                    </div>
+                  </div>
+              </div>
+          @end
+       </div>
+   </div>
+@end

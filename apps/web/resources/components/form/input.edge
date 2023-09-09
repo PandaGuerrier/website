@@ -1,0 +1,9 @@
+<div class="space-y-1">
+  <label for="{{ name }}" class="text-white">
+  {{ label }}
+  @if(required)
+    <span class="text-red-500">*</span>
+  @endif
+  </label>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" autocomplete="{{ name }}" {{ required ? "required" : "" }} class="appearance-none relative block w-full px-3 py-2 border border-blue-500 bg-transparent placeholder-gray-300 text-blue-400 rounded-full focus:outline-none focus:ring-slate-700 focus:border-slate-700 focus:z-10 sm:text-sm" placeholder="{{ label }}">
+</div>

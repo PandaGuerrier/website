@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+html, body {
+  background-color: #F7F8FA;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  color: #46444c;
+  position: relative;
+}
+
+.ss-main {
+  @apply py-2;
+}
+
+.ss-main .ss-values {
+  @apply py-2;
+}
+
+.ss-main .ss-values .ss-value {
+  @apply bg-primary-500 px-2 py-1 rounded-md;
+}
+
+.ss-content .ss-list {
+  @apply mt-2 space-y-1;
+}
+
+.ss-content .ss-list .ss-option:hover {
+  @apply bg-gray-100 text-gray-800 rounded-md;
+}
+
+.ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected {
+  @apply relative flex justify-between bg-gray-100 text-gray-800 rounded-md;
+}
+
+.ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected:after {
+  content: '✔';
+  @apply text-green-500;
+}
+
+.title {
+  letter-spacing: 0.535em;
+  -webkit-text-stroke: 1px #60A5FA;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #60A5FA;
+  color: transparent;
+  text-shadow: none;
+  font-family: primetime,sans-serif;
+  font-size: 141px;
+  text-transform: uppercase;
+}

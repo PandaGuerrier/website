@@ -1,0 +1,13 @@
+@if(href)
+  @if(filled)
+   <a href="{{ href }}" class="duration-200 bg-blue-400 text-white hover:bg-blue-600 px-3 py-2 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-blue-300 ">{{ label }}</a>
+  @else
+    <a href="{{ href }}" class="duration-200 text-blue-400 hover:text-blue-500 px-3 py-2 rounded-full text-sm font-medium">{{ label }}</a>
+  @endif
+@else
+  @if(filled)
+    <button type="submit" class="duration-200 bg-blue-400 text-white hover:bg-blue-600 px-3 py-2 w-full rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-blue-300 ">{{ label }}</button>
+  @else
+    <button type="submit" class="duration-200	text-blue-400 hover:text-blue-500 px-3 py-2 rounded-full text-sm font-medium">{{ label }}</button>
+  @endif
+@endif
