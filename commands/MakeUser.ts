@@ -15,7 +15,8 @@ export default class MakeUser extends BaseCommand {
   public async run () {
     const { default: User } = await import('Domains/users/models/User')
 
-    const username = await this.prompt.ask('Enter username')
+    const firstname = await this.prompt.ask('Enter username')
+    const lastname = await this.prompt.ask('Enter lastname')
     const email = await this.prompt.ask('Choose email')
     const password = await this.prompt.secure('Choose account password')
     const passwordConfirmation = await this.prompt.secure('Confirm account password')
@@ -25,7 +26,13 @@ export default class MakeUser extends BaseCommand {
       return
     }
 
-    await User.create({ username, email, password })
+    await User.create({
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password,
+      isAdmin: true,
+    })
 
     this.logger.success('User was create')
   }

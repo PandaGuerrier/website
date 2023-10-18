@@ -1,27 +1,63 @@
-@layout('web::layouts/authentication')
+@layout('web::layouts/default')
 
 @section('body')
     <div class="flex justify-center content-center items-center w-full h-full space-y-5">
-       <div class="flex justify-center content-center w-2/7 bg-blue-950 border border-blue-400 rounded-xl p-12">
-            @form.container({ method: 'POST', action: route('user.store') })
-              <div class="flex gap-5">
-                @!form.input({
-                  label: 'Prénom',
-                  name: 'firstname',
-                  required: true
-                })
-                @!form.input({
-                  label: 'Nom',
-                  name: 'lastname',
-                  required: true
-                })
-              </div>
+       <div class="flex justify-center content-center w-full md:w-1/4 p-12 rounded-xl bg-gray-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30">
+          @form.container({ method: 'POST', action: route('user.store') })
+                <h1 class="text-5xl text-bold text-white w-full flex justify-center">Register</h1>
+                <div class="w-full flex justify-center content-center mt-24">
+                  <div class="space-y-10">
+                    @!component("web::components/form/input", {
+                      label: 'Mail',
+                      name: 'email',
+                      required: true,
+                      type: "email"
+                    })
 
-              @!form.input({ label: 'Email', type: 'email', name: 'email' })
-              @!form.input({ label: 'Mot de passe', type: 'password', name: 'password' })
-              @!form.input({ label: 'Confirmation du mot de passe', type: 'password', name: 'password_confirmation' })
-              <button type="submit">Créer mon compte</button>
-            @end
-         </div>
-     </div>
+                    <div class="flex space-x-4">
+                      @!component("web::components/form/input", {
+                        label: 'Firstname',
+                        name: 'firstname',
+                        required: true,
+                        type: "input"
+                      })
+                      @!component("web::components/form/input", {
+                        label: 'Lastname',
+                        name: 'lastname',
+                        required: true,
+                        type: "input"
+                      })
+                     </div>
+                    <div class="flex space-x-4">
+                      @!component("web::components/form/input", {
+                        label: 'Password',
+                        name: 'password',
+                        required: true,
+                        type: "password"
+                      })
+
+                      @!component("web::components/form/input", {
+                        label: 'Confirm password',
+                        name: 'password_confirmation',
+                        required: true,
+                        type: "password"
+                      })
+                    </div>
+
+                    <div class="justify-center w-full">
+                      @!component("web::components/form/button", {
+                        label: 'Create account',
+                        filled: true
+                      })
+                    </div>
+                    <div class="mt-4 flex space-x-2 justify-center">
+                      <span class="text-white">Or </span>
+                      <a href="/authentication/login" class="text-blue-400 hover:text-blue-600"> have a account</a>
+                    </div>
+                  </div>
+              </div>
+          @end
+       </div>
+   </div>
 @end
+

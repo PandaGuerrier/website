@@ -1,0 +1,13 @@
+@layout('web::layouts/default')
+
+@section('body')
+  <div class="flex justify-center h-full w-full">
+      @!component('web::components/background')
+      <div class="z-10 flex justify-center items-center w-full h-full">
+      <div class="p-2 text-center">
+          <h1 class="font-bold text-4xl md:text-6xl text-white">Oh !</h1>
+          <h2 class="font-bold text-2xl md:text-4xl text-gray-500">You arrived too quickly, come back later!</h2>
+        </div>
+       </div>
+   </div>
+@end

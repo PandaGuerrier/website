@@ -6,20 +6,36 @@ export default class AuthenticationController {
     return view.render('web::views/authentication/login')
   }
 
-  public async login ({ request, response, auth, session, i18n }: HttpContextContract) {
+  public async login ({ request, response, auth, session }: HttpContextContract) {
     const { email, password } = await request.validate(LoginValidator)
 
     try {
       await auth.use('web').attempt(email, password)
+
+      session.flash('toast', {
+        type: 'success',
+        message: "You're logged in!"
+      })
+
       response.redirect('/')
-    } catch {
-      session.flash('error', i18n.formatMessage('authentication.errors.bad_credentials'))
+    } catch (error) {
+       session.flash('toast', {
+        type: 'warning',
+        message: "Unkown user or wrong password!"
+      })
+
       return response.redirect().back()
     }
   }
 
-  public async logout ({ response, auth }: HttpContextContract) {
+  public async logout ({ response, auth, session }: HttpContextContract) {
     await auth.logout()
+
+    session.flash('toast', {
+      type: 'success',
+      message: "You're logged out!"
+    })
+
     return response.redirect().back()
   }
 }

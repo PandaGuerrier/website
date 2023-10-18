@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 right-0 shadow-md z-40	bg-blue-950 border border-b-blue-900 border-t-blue-950 border-r-blue-950 border-l-blue-950">
+ <nav class="fixed top-0 left-0 right-0 pb-4 z-40 bg-transparent animate__animated animate__fadeInDownBig shadow text-gray-400 bg-gray-800 backdrop-blur bg-opacity-5 border border-transparent border-b-gray-900"  x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -10,7 +10,7 @@
 
               Menu open: "hidden", Menu closed: "block"
             -->
-            <button id="mobile-open" type="button" class="duration-200 relative inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white index-50" aria-controls="mobile-menu" aria-expanded="false">
+            <button id="mobile-open" type="button" @click="open = true" x-show="!open" class="duration-200 relative inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white index-50" aria-controls="mobile-menu" aria-expanded="false">
               <svg id="mobile-open" class="block h-6 w-6 index-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path id="mobile-open" stroke-linecap="round index-10" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -23,50 +23,65 @@
 
               Menu open: "block", Menu closed: "hidden"
             -->
-            <button id="mobile-close" type="button" class="hidden items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <button id="mobile-close" type="button" @click="open = false" x-show="open" class="items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
               <svg id="mobile-close" class=" h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path id="mobile-close" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
           </button>
         </div>
-        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-center mt-6 space-x-4">
-          <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4 duration-100 h-2/4 items-end mt-2">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="duration-200	text-blue-400 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
 
-              <a href="/#presentation" class="duration-200 text-blue-400 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">Présentation</a>
-            </div>
-          </div>
-
-          <!-- LOGO -->
-          <div class="h-full mt-10">
-            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <mask id="path-1-inside-1_109_52" fill="white">
-                <path d="M0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50C100 77.6142 77.6142 100 50 100C22.3858 100 0 77.6142 0 50Z"/>
-              </mask>
-              <path d="M0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50C100 77.6142 77.6142 100 50 100C22.3858 100 0 77.6142 0 50Z" fill="#172554"/>
-              <path d="M0 0H100H0ZM100.5 51.5C100.5 79.3904 77.8904 102 50 102C22.1096 102 -0.5 79.3904 -0.5 51.5L0.5 50C0.5 76.5097 22.6619 98 50 98C77.3381 98 99.5 76.5097 99.5 50L100.5 51.5ZM50 102C22.1096 102 -0.5 79.3904 -0.5 51.5V50.5C-0.5 22.6096 22.1096 0 50 0C22.6619 0 0.5 22.3858 0.5 50C0.5 76.5097 22.6619 98 50 98V102ZM50 0C77.8904 0 100.5 22.6096 100.5 50.5V51.5C100.5 79.3904 77.8904 102 50 102V98C77.3381 98 99.5 76.5097 99.5 50C99.5 22.3858 77.3381 0 50 0Z" fill="#1E40AF" mask="url(#path-1-inside-1_109_52)"/>
-              <path d="M33.2507 38.2697L45.6952 51.3258L62.1282 33L93 68L62.1282 42.5169V58.4791L50.0028 53.6067L39.3533 62.4157L45.6952 53.6067L33.2507 44.7191L28.3846 52.9775L26.7892 51.9551L24.0769 58.3258L22.8803 52.9775L9 61.236L19.2108 51.3258H23.6781L33.2507 38.2697Z" fill="#60A5FA"/>
-            </svg>
-          </div>
-          <!-- END LOGO -->
-
-          <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4 duration-100 h-2/4 items-end mt-2">
-              <a href="/#achievements" class="duration-200	text-blue-400 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">Réalisation</a>
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-center space-x-4">
+        <!-- LOGO -->
+        <div class="m-2 mt-6">
+          <svg width="80" height="80" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48.4459 11.5506L48.4492 37.6422L39.7516 28.9428V20.2449L31.057 20.2482L22.3594 11.5506H48.4459Z" fill="white"/>
+            <path d="M37.6406 48.4494L28.943 39.7518L20.2484 39.7551V31.0572L11.5508 22.3578L11.5541 48.4494H37.6406Z" fill="white"/>
+            <path d="M20.0191 13.8836L13.873 20.0361L39.9777 46.1134L46.1237 39.9609L20.0191 13.8836Z" fill="white"/>
+          </svg>
+        </div>
+        <!-- END LOGO -->
+          <div class="hidden sm:flex w-full items-center mt-4">
+            <div class="flex justify-start w-full space-x-5">
+                @!component("web::components/form/button", {
+                    filled: false,
+                    label: "Home",
+                    href: "/",
+                  })
+                  @!component("web::components/form/button", {
+                    filled: false,
+                    label: "About me",
+                    href: "/",
+                  })
+                 @!component("web::components/form/button", {
+                  filled: false,
+                  label: "My projects",
+                  href: "/",
+                })
+                @!component("web::components/form/button", {
+                  filled: false,
+                  label: "Order",
+                  href: "/",
+                })
+             </div>
+            <div class="flex justify-end w-full">
               @if(auth.isLoggedIn)
-                <a href="/" class="duration-200 bg-red-100 text-blue-400 hover:bg-red-200 px-3 py-2 rounded-md text-sm font-medium">Déconnexion</a>
                 @if(auth.user.role == "admin")
-                      <a href="/" class="duration-200 bg-slate-700 hover:bg-slate-600 text-white px-3 py-2 rounded-md text-sm font-medium index-50 index-10">Dashboard</a>
-                    @else
-                      <a class="duration-200 bg-slate-700 hover:bg-slate-600 text-white px-3 py-2 rounded-md text-sm font-medium index-50 index-10">{{ auth.user.username }}</a>
+                      @!component("web::components/form/button", {
+                          filled: true,
+                          label: "Dashboard",
+                          href: "/",
+                        })
+                 @else
+                      @!component("web::components/form/button", {
+                          filled: true,
+                          label: "Logout",
+                          href: "/authentication/logout",
+                        })
                     @endif
-
                 @else
                   @!component("web::components/form/button", {
                       filled: true,
-                      label: "Connexion",
+                      label: "Login",
                       href: "/authentication/login",
                     })
                 @endif
@@ -78,28 +93,25 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" >
-      <div class="hidden px-2 pt-2 pb-3 space-y-1" id="mobile-menu">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="/" class="text-blue-400 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+    <div class="sm:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 mt-12" id="mobile-menu" x-show="open">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300" -->
+        <a href="/" class="flex text-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium">Home</a>
 
-        <a href="/#presentation" class="text-blue-400 h  over:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Présentation</a>
+        <a href="/#presentation" class="flex text-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium">About me</a>
 
-        <a href="/#achievements" class="text-blue-400 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Réalisation</a>
+        <a href="/#achievements" class="flex text-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium">My projects</a>
+        <a href="/#achievements" class="flex text-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium">Order</a>
 
         @if(auth.isLoggedIn)
-        <a href="/" class="text-blue-400 hover:bg-red-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Déconnexion</a>
           @if(auth.user.role == "admin")
-            <a href="/" class="bg-slate-700 hover:bg-slate-600 text-white block px-3 py-2 top-8 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+            <a href="/admin/dashboard" class="flex text-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium" aria-current="page">Dashboard</a>
           @else
-          <a class="bg-slate-700 hover:bg-slate-600 text-white block px-3 py-2 top-8 rounded-md text-base font-medium" aria-current="page">{{ auth.user.username }}</a>
+             <a href="/authentication/logout" class="flex text-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium">Logout</a>
           @endif
-          @else
-
-        <a href="/" class="text-blue-400 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Connexion</a>
-
-        <a href="/" class="bg-slate-700 hover:bg-slate-600 text-white block px-3 py-2 top-8 rounded-md text-base font-medium" aria-current="page">Inscription</a>
-        @endif
+        @else
+          <a href="/authentication/login" class="flex text-black bg-white justify-center items-center border border-transparent hover:border-white block px-3 py-2 rounded-lg text-base font-medium">Login</a>
+       @endif
 
       </div>
     </div>

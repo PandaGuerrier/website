@@ -1,32 +1,35 @@
-@layout('web::layouts/authentication')
+@layout('web::layouts/default')
 
 @section('body')
     <div class="flex justify-center content-center items-center w-full h-full space-y-5">
-       <div class="flex justify-center content-center w-2/7 bg-blue-950 border border-blue-400 rounded-xl p-12">
+       <div class="flex justify-center content-center w-full md:w-1/4 p-12 rounded-xl bg-gray-800 backdrop-blur bg-opacity-5 border border-gray-900">
           @form.container({ method: 'POST', action: route('authentication.login') })
-                <h1><span class="title text-5xl text-bold">Connexion</span></h1>
+                <h1 class="text-5xl text-bold text-white w-full flex justify-center">Login</h1>
                 <div class="w-full flex justify-center content-center mt-24">
                   <div class="space-y-10">
                     @!component("web::components/form/input", {
-                      label: 'Email',
+                      label: 'Mail',
                       name: 'email',
                       required: true,
                       type: "email"
                     })
 
                     @!component("web::components/form/input", {
-                      label: 'Mot de passe',
+                      label: 'Password',
                       name: 'password',
                       required: true,
                       type: "password"
                     })
 
-                    <div class="justify-center">
+                    <div class="justify-center w-full">
                       @!component("web::components/form/button", {
-                        label: 'Connexion',
+                        label: 'Login',
                         filled: true
                       })
-                      <a href="/account/create" class="text-blue-400 hover:text-blue-500">Pas encore inscrit ?</a>
+                    </div>
+                    <div class="mt-4 flex space-x-2 justify-center">
+                      <span class="text-white">Or </span>
+                      <a href="/authentication/register" class="text-blue-200 hover:text-blue-400 duration-200"> create a account</a>
                     </div>
                   </div>
               </div>

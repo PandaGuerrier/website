@@ -104,7 +104,7 @@ export default class User extends BaseModel {
       return role.permissions.map((permission: Permission) => permission.key)
     })
 
-    return permissions.some((permission) => {
+    return user.isAdmin && permissions.some((permission) => {
       return permissionKeys.includes(permission)
     })
   }

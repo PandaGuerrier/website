@@ -1,13 +1,13 @@
 @if(href)
   @if(filled)
-   <a href="{{ href }}" class="duration-200 bg-blue-400 text-white hover:bg-blue-600 px-3 py-2 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-blue-300 ">{{ label }}</a>
+   <a href="{{ href }}" class="m-1 duration-200 bg-white text-black hover:bg-gray-300 px-3 py-2 rounded-lg text-base font-medium focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-blue-300">{{ label }}</a>
   @else
-    <a href="{{ href }}" class="duration-200 text-blue-400 hover:text-blue-500 px-3 py-2 rounded-full text-sm font-medium">{{ label }}</a>
+    <a href="{{ href }}" class="m-1 flex items-center px-3 py-2 font-medium rounded-lg shadow text-gray-400 hover:bg-gray-800 hover:backdrop-blur hover:bg-opacity-5 border border-transparent hover:border-gray-900 duration-200">{{ label }}</a>
   @endif
 @else
   @if(filled)
-    <button type="submit" class="duration-200 bg-blue-400 text-white hover:bg-blue-600 px-3 py-2 w-full rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-blue-300 ">{{ label }}</button>
+    <button type="submit" class="duration-200 bg-white text-black hover:bg-gray-300 px-3 py-2 rounded-lg text-base font-medium focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 focus:ring-offset-blue-300 w-full">{{ label }}</button>
   @else
-    <button type="submit" class="duration-200	text-blue-400 hover:text-blue-500 px-3 py-2 rounded-full text-sm font-medium">{{ label }}</button>
+    <button type="submit" class="m-1 duration-200 text-white border-transparent border hover:border-white px-3 py-2 rounded-lg text-base font-large">{{ label }}</button>
   @endif
 @endif

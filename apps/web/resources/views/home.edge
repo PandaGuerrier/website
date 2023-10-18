@@ -1,7 +1,29 @@
-@layout('manager::layouts/default')
+@layout('web::layouts/default')
 
 @section('body')
-<div>
-  Hello World
-</div>
+  <div class="flex justify-center h-full w-full">
+      <div class="z-10 flex justify-center items-center w-full h-full">
+        <div class="p-2 text-center">
+            <h1 class="font-bold text-4xl md:text-6xl text-white animate__animated animate__bounce">Panda Guerrier</h1>
+            <h2 class="font-bold text-2xl md:text-4xl text-gray-500">A passionate 16-year-old French developer.</h2>
+            <div class="flex justify-center mt-4 space-x-5">
+                @!component('web::components/form/button', {
+                  href: "/",
+                  filled: true,
+                  label: "Show more"
+                })
+                @!component('web::components/form/button', {
+                  href: "/",
+                  filled: false,
+                  label: "Get a quote"
+                })
+            </div>
+          </div>
+       </div>
+   </div>
+   <div class="flex justify-center h-1/2 w-full bg-slate-900">
+       <div class="z-10 flex justify-center items-center w-full h-full">
+          test
+        </div>
+    </div>
 @end

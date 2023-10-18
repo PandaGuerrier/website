@@ -6,6 +6,7 @@ html, body {
   height: 100vh;
   color: #46444c;
   position: relative;
+  overflow-x: hidden;
 }
 
 .ss-main {
@@ -37,14 +38,60 @@ html, body {
   @apply text-green-500;
 }
 
-.title {
-  letter-spacing: 0.535em;
-  -webkit-text-stroke: 1px #60A5FA;
+
+.blur1 {
+  position: absolute;
+  width: 316px;
+  height: 316px;
+  left: 1200px;
+  top: 365px;
+
+  background: rgba(143, 237, 169, 0.75);
+  filter: blur(250px);
+}
+
+.blur2 {
+  position: absolute;
+  width: 316px;
+  height: 316px;
+  left: 500px;
+  top: 187px;
+
+  background: rgba(69, 89, 197, 0.75);
+  filter: blur(250px);
+}
+
+@media (max-width: 768px) {
+  .blur1 {
+    left: 220px;
+    top: 400px;
+    width: 150px;
+    height: 150px;
+    filter: blur(110px);
+  }
+
+  .blur2 {
+    left: 15px;
+    top: 280px;
+    width: 150px;
+    height: 150px;
+    filter: blur(110px);
+  }
+}
+
+
+.titlehero {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 77px;
+  font-size: 64px;
+
+  /*-webkit-text-stroke: 1px #60A5FA;*/
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #60A5FA;
+ /* -webkit-text-stroke-color: #60A5FA;*/
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px transparent;
   color: transparent;
-  text-shadow: none;
-  font-family: primetime,sans-serif;
-  font-size: 141px;
-  text-transform: uppercase;
 }
